@@ -78,10 +78,13 @@ const customizeTip = () => {
 const resetAll = () => {
   billInput.value = 0;
   numberOfPeopleInput.value = 1;
+
   billErrorText.classList.remove("show");
   numberOfPeopleErrorText.classList.remove("show");
+
   tipAmountText.textContent = "$0.00";
   totalAmountText.textContent = "$0.00";
+
   tipButtons.forEach((b) => {
     if (b.id == 15) b.classList.add("selected-tip");
     else b.classList.remove("selected-tip");
@@ -97,11 +100,14 @@ const selectText = (input) => {
 
 /** events */
 window.addEventListener("DOMContentLoaded", doCalculation);
+
+tipButtons.forEach((b) => b.addEventListener("click", () => selectTip(b)));
+resetBtn.addEventListener("click", resetAll);
+
 billInput.addEventListener("keyup", doCalculation);
 numberOfPeopleInput.addEventListener("keyup", doCalculation);
 customInput.addEventListener("keyup", customizeTip);
-tipButtons.forEach((b) => b.addEventListener("click", () => selectTip(b)));
-resetBtn.addEventListener("click", resetAll);
+
 billInput.addEventListener("click", () => selectText(billInput));
 numberOfPeopleInput.addEventListener("click", () =>
   selectText(numberOfPeopleInput)

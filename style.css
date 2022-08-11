@@ -19,6 +19,7 @@
   --font-weight-1: 700;
   --font-weight-2: 400;
   --font-family: "Space Mono", monospace;
+  --red: rgba(255, 0, 0, 0.486);
 }
 body {
   background: var(--Light-grayish-cyan);
@@ -101,7 +102,7 @@ body {
   margin-bottom: 0.5rem;
 }
 .error {
-  color: rgba(255, 0, 0, 0.486);
+  color: var(--red);
   opacity: 0;
 }
 .form-side input {
@@ -119,6 +120,9 @@ body {
 }
 .form-side input:focus {
   outline: 1px solid var(--Strong-cyan);
+}
+.error-input {
+  outline: 1px solid var(--red);
 }
 #bill-input {
   background: var(--Very-light-grayish-cyan) url("./images/icon-dollar.svg")
