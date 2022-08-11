@@ -57,6 +57,7 @@ const selectTip = (button) => {
   if (selectedTipButton) selectedTipButton.classList.remove("selected-tip");
   if (button.id == "custom-tip") {
     customInput.classList.add("show");
+    selectText(customInput);
     tipPourcentage = customInput.value / 100;
     doCalculation();
     return;
@@ -88,6 +89,12 @@ const resetAll = () => {
   customInput.classList.remove("show");
 };
 
+/** selects input text when selecting an input */
+const selectText = (input) => {
+  input.focus();
+  input.select();
+};
+
 /** events */
 window.addEventListener("DOMContentLoaded", doCalculation);
 billInput.addEventListener("keyup", doCalculation);
@@ -95,3 +102,8 @@ numberOfPeopleInput.addEventListener("keyup", doCalculation);
 customInput.addEventListener("keyup", customizeTip);
 tipButtons.forEach((b) => b.addEventListener("click", () => selectTip(b)));
 resetBtn.addEventListener("click", resetAll);
+billInput.addEventListener("click", () => selectText(billInput));
+numberOfPeopleInput.addEventListener("click", () =>
+  selectText(numberOfPeopleInput)
+);
+customInput.addEventListener("click", () => selectText(customInput));

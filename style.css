@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: var(--font-family);
 }
 :root {
   --Strong-cyan: hsl(172, 67%, 45%);
@@ -63,14 +64,15 @@ body {
     place-items: center;
   }
   .sub-container {
-    width: 900px;
+    width: 750px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
   .calculator-container {
     flex-direction: row;
-    height: 500px;
+    height: 400px;
+    box-shadow: 10px 20px 100px rgba(0, 0, 0, 0.103);
   }
   .sub-container > img {
     width: 5rem;
@@ -113,6 +115,10 @@ body {
   border-radius: 5px;
   color: var(--Very-dark-cyan);
   font-weight: bold;
+  cursor: pointer;
+}
+.form-side input:focus {
+  outline: 1px solid var(--Strong-cyan);
 }
 #bill-input {
   background: var(--Very-light-grayish-cyan) url("./images/icon-dollar.svg")
@@ -138,6 +144,7 @@ body {
   color: var(--White);
   border-radius: 5px;
   font-weight: bold;
+  cursor: pointer;
 }
 .selected-tip {
   background: var(--Strong-cyan);
@@ -167,6 +174,14 @@ body {
   opacity: 1;
   z-index: 99;
 }
+@media (min-width: 1300px) {
+  .form-side {
+    width: 100%;
+  }
+  .tips-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 /* 
 =================================================
 ================================================
@@ -183,6 +198,7 @@ body {
   padding: 1rem;
   border-radius: 15px;
   color: var(--White);
+  position: relative;
 }
 .display-side h1 {
   color: var(--Strong-cyan);
@@ -209,10 +225,15 @@ body {
   border-radius: 5px;
   font-size: var(--Font-size-3);
   font-weight: bold;
+  cursor: pointer;
 }
 @media (min-width: 1300px) {
   .display-side {
     width: 100%;
     height: 100%;
+    padding: 2rem;
+  }
+  .reset-button {
+    margin-top: 5rem;
   }
 }
