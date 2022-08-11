@@ -35,40 +35,50 @@
             <div class="field-container">
               <div class="labels">
                 <label for="bill">Bill</label>
-                <p class="error">can't be zero</p>
+                <p class="error" id="bill-error">can't be zero</p>
               </div>
               <input
                 id="bill-input"
-                value="142.55"
-                type="text"
+                value="100"
+                type="number"
                 name="bill"
-                placeholder="0.00"
+                placeholder="0"
               />
             </div>
             <!-- select tip % -->
             <div class="field-container">
               <label for="bill">Select Tip %</label>
               <div class="tips-grid">
-                <button class="tip-button">5%</button>
-                <button class="tip-button">10%</button>
-                <button class="tip-button selected-tip">15%</button>
-                <button class="tip-button">25%</button>
-                <button class="tip-button">50%</button>
-                <button class="tip-button" id="custom-tip">custom</button>
+                <button class="tip-button" id="5">5%</button>
+                <button class="tip-button" id="10">10%</button>
+                <button class="tip-button selected-tip" id="15">15%</button>
+                <button class="tip-button" id="25">25%</button>
+                <button class="tip-button" id="50">50%</button>
+                <div class="tip-button" id="custom-tip">
+                  <p>custom</p>
+                  <input
+                    id="custom-input"
+                    class="custom-input"
+                    value="40"
+                    type="number"
+                    name="bill"
+                    placeholder="0"
+                  />
+                </div>
               </div>
             </div>
             <!-- number of people -->
             <div class="field-container">
               <div class="labels">
                 <label for="number-people">Number of people</label>
-                <p class="error">can't be zero</p>
+                <p class="error" id="number-people-error">can't be zero</p>
               </div>
               <input
-                id="number-people"
-                type="text"
-                name="number-people"
-                placeholder="0.00"
                 value="1"
+                id="number-people"
+                type="number"
+                name="number-people"
+                placeholder="0"
               />
             </div>
           </div>

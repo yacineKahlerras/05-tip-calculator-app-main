@@ -78,9 +78,6 @@ body {
   color: rgba(255, 0, 0, 0.486);
   opacity: 0;
 }
-.show {
-  opacity: 1;
-}
 .form-side input {
   width: 100%;
   height: 2.5rem;
@@ -116,10 +113,27 @@ body {
 }
 #custom-tip {
   background: var(--Light-grayish-cyan);
-  color: var(--Very-dark-cyan);
+  color: var(--Dark-grayish-cyan);
   text-transform: capitalize;
   font-weight: bold;
   font-size: var(--Font-size-2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+}
+.show {
+  opacity: 1;
+  z-index: 99;
 }
 /* 
 =================================================
