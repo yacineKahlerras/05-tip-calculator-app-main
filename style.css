@@ -53,6 +53,30 @@ body {
   border-radius: 20px;
   padding: 2rem;
 }
+@media (min-width: 1300px) {
+  .container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+  }
+  .sub-container {
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .calculator-container {
+    flex-direction: row;
+    height: 500px;
+  }
+  .sub-container > img {
+    width: 5rem;
+    margin-bottom: 4rem;
+  }
+}
 /* 
 =================================================
 ================================================
@@ -89,6 +113,14 @@ body {
   border-radius: 5px;
   color: var(--Very-dark-cyan);
   font-weight: bold;
+}
+#bill-input {
+  background: var(--Very-light-grayish-cyan) url("./images/icon-dollar.svg")
+    no-repeat 0.9rem 0.7rem;
+}
+#number-people {
+  background: var(--Very-light-grayish-cyan) url("./images/icon-person.svg")
+    no-repeat 0.9rem 0.7rem;
 }
 .tips-grid {
   width: 100%;
@@ -177,4 +209,10 @@ body {
   border-radius: 5px;
   font-size: var(--Font-size-3);
   font-weight: bold;
+}
+@media (min-width: 1300px) {
+  .display-side {
+    width: 100%;
+    height: 100%;
+  }
 }

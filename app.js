@@ -1,14 +1,17 @@
-/**on each key up calculate amount
- */
+/** vars */
 const billInput = document.getElementById("bill-input");
 const numberOfPeopleInput = document.getElementById("number-people");
 const customInput = document.getElementById("custom-input");
+
 const billErrorText = document.getElementById("bill-error");
 const numberOfPeopleErrorText = document.getElementById("number-people-error");
 const tipAmountText = document.getElementById("tip-amount");
 const totalAmountText = document.getElementById("total-amount");
+
 let selectedTipButton = document.querySelector(".selected-tip");
 const tipButtons = [...document.querySelectorAll(".tip-button")];
+const resetBtn = document.querySelector(".reset-button");
+
 let tipPourcentage = selectedTipButton.id / 100;
 let errorFlag = false;
 
@@ -20,8 +23,8 @@ const doCalculation = () => {
   let people = numberOfPeopleInput.value;
   let tipPerPerson = (bill * tipPourcentage) / people;
   let totalBillPerPerson = bill / people + tipPerPerson;
-  tipAmountText.textContent = tipPerPerson.toFixed(2);
-  totalAmountText.textContent = totalBillPerPerson.toFixed(2);
+  tipAmountText.textContent = "$" + tipPerPerson.toFixed(2);
+  totalAmountText.textContent = "$" + totalBillPerPerson.toFixed(2);
 };
 
 /** checks if either inputs are empty or zero */
@@ -64,13 +67,31 @@ const selectTip = (button) => {
   doCalculation();
 };
 
-/**does a custom tip */
+/** does a custom tip */
 const customizeTip = () => {
   tipPourcentage = customInput.value / 100;
   doCalculation();
 };
 
+/** resets all input and display text values */
+const resetAll = () => {
+  billInput.value = 0;
+  numberOfPeopleInput.value = 1;
+  billErrorText.classList.remove("show");
+  numberOfPeopleErrorText.classList.remove("show");
+  tipAmountText.textContent = "$0.00";
+  totalAmountText.textContent = "$0.00";
+  tipButtons.forEach((b) => {
+    if (b.id == 15) b.classList.add("selected-tip");
+    else b.classList.remove("selected-tip");
+  });
+  customInput.classList.remove("show");
+};
+
+/** events */
+window.addEventListener("DOMContentLoaded", doCalculation);
 billInput.addEventListener("keyup", doCalculation);
 numberOfPeopleInput.addEventListener("keyup", doCalculation);
 customInput.addEventListener("keyup", customizeTip);
 tipButtons.forEach((b) => b.addEventListener("click", () => selectTip(b)));
+resetBtn.addEventListener("click", resetAll);
