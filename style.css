@@ -121,7 +121,10 @@ body {
 .form-side input:focus {
   outline: 1px solid var(--Strong-cyan);
 }
-.error-input {
+.input-error {
+  outline: 1px solid var(--red);
+}
+.input-error:focus {
   outline: 1px solid var(--red);
 }
 #bill-input {

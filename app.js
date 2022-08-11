@@ -35,16 +35,20 @@ const checkIfInputsEmpty = () => {
     peopleError = false;
   if (billValue <= 0 || billValue == null) {
     billErrorText.classList.add("show");
+    billInput.classList.add("input-error");
     billError = true;
   } else {
     billErrorText.classList.remove("show");
+    billInput.classList.remove("input-error");
     billError = false;
   }
   if (peopleValue < 1 || peopleValue == null) {
     numberOfPeopleErrorText.classList.add("show");
+    numberOfPeopleInput.classList.add("input-error");
     peopleError = true;
   } else {
     numberOfPeopleErrorText.classList.remove("show");
+    numberOfPeopleInput.classList.remove("input-error");
     peopleError = false;
   }
   if (billError || peopleError) errorFlag = true;
